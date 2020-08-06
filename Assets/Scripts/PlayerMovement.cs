@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _pressingJumpLimit = 1f;
     private float _pressingJumpDuration = 0;
     private Rigidbody2D _rigidbody;
-    [SerializeField] private float _horizontalSpeed = 5f;
-    [SerializeField] private float _jumpSpeed = 5f;
+    [SerializeField] private float _horizontalSpeed = 2f;
+    [SerializeField] private float _jumpSpeed = 4f;
+    [SerializeField] private float _jumpHorizontalSpeed = 3f;
 
     void Start()
     {
@@ -23,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Jump();
         ChangeDirection();
+        Jump();
     }
 
     private void ChangeDirection()
@@ -47,12 +48,20 @@ public class PlayerMovement : MonoBehaviour
         if (_playerInput.PressingJump && !_isJumping && _isGrounded) { 
             _isJumping = true;
             _pressingJumpDuration = 0;
+            if (_playerInput.IsRewinding.Value)
+            {
+                ChangeHorizontalSpeed(-_jumpHorizontalSpeed);
+            }
+            else
+            {
+                ChangeHorizontalSpeed(_jumpHorizontalSpeed);
+            }
         }
 
         if (_playerInput.PressingJump && _isJumping && _pressingJumpDuration < _pressingJumpLimit)
         {
             ChangeVerticalSpeed(_jumpSpeed);
-            _pressingJumpDuration += Time.deltaTime;
+            _pressingJumpDuration += Time.fixedDeltaTime;
         }
     }
 

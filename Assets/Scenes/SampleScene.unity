@@ -354,6 +354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4898526832854748647, guid: bf28d6d713a90ee46be4620f77a8e4a0,
+        type: 3}
+      propertyPath: delay
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7418344678142734117, guid: bf28d6d713a90ee46be4620f77a8e4a0,
         type: 3}
       propertyPath: m_LocalPosition.x

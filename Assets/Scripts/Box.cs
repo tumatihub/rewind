@@ -14,9 +14,9 @@ public class Box : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _rigidbody.MovePosition(new Vector2(transform.position.x, transform.position.y - (Speed.Value * Time.deltaTime)));
+        _rigidbody.MovePosition(new Vector2(transform.position.x, transform.position.y - (Speed.Value * Time.fixedDeltaTime)));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
