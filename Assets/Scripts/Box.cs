@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+    [SerializeField] ParticleSystem _boxParticles;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("TapeGround"))
@@ -16,6 +17,7 @@ public class Box : MonoBehaviour
 
     private void BoxDestroy()
     {
+        Instantiate(_boxParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
