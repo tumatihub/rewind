@@ -1,16 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3401616763359018462
+--- !u!1001 &5329207458631690532
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1580923043199738246, guid: 18f5ac7f10505534685f5aae707220dd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c297c8513e7553459499d622a1b3125,
+        type: 3}
     - target: {fileID: 1617285259777568271, guid: 18f5ac7f10505534685f5aae707220dd,
         type: 3}
       propertyPath: m_Name
-      value: GoldCoin
+      value: SilverCoin
       objectReference: {fileID: 0}
     - target: {fileID: 2557418912957601893, guid: 18f5ac7f10505534685f5aae707220dd,
         type: 3}
@@ -22,13 +28,13 @@ PrefabInstance:
         type: 3}
       propertyPath: ObjectScore
       value: 
-      objectReference: {fileID: 11400000, guid: 3087ee899dd21894b93fbb9cdb32ea9b,
+      objectReference: {fileID: 11400000, guid: 7cce2f2001bbff6418460102c14984f6,
         type: 2}
     - target: {fileID: 2557418912957601893, guid: 18f5ac7f10505534685f5aae707220dd,
         type: 3}
       propertyPath: _lostCoin
       value: 
-      objectReference: {fileID: 6133155794076614957, guid: 63642fb662a2b5240844576ff1ef45c5,
+      objectReference: {fileID: 84047285462646134, guid: 8867b9955db336c4e8e478fcce3f6a18,
         type: 3}
     - target: {fileID: 7780402113839505954, guid: 18f5ac7f10505534685f5aae707220dd,
         type: 3}

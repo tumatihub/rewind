@@ -6,31 +6,26 @@ public class ScoreObject : MonoBehaviour
 {
     [SerializeField] private Score _score;
     public IntegerVariable ObjectScore;
-    [SerializeField] private GameObject _particles;
+    [SerializeField] private ParticleSystem _scoreParticles;
+    [SerializeField] private ParticleSystem _lostCoin;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             _score.AddScore(ObjectScore.Value);
-            if (_particles != null)
+            if (_scoreParticles != null)
             {
-                Instantiate(_particles, transform.position, Quaternion.identity);
+                Instantiate(_scoreParticles, transform.position, Quaternion.identity);
             }
-            Destroy(gameObject);
         }
 
+        if (collision.gameObject.CompareTag("TapeGround"))
+        {
+            Instantiate(_lostCoin, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
 }
