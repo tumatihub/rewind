@@ -15,15 +15,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _horizontalSpeed = 2f;
     [SerializeField] private float _jumpSpeed = 4f;
     [SerializeField] private float _jumpHorizontalSpeed = 3f;
+    [SerializeField] private float _timeToPauseAfterDie = 3f;
+    private bool _isDead = false;
+
+    private Animator _anim;
 
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
+        if (_isDead) return;
+
         ChangeDirection();
         Jump();
     }
@@ -47,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_playerInput.PressingJump && !_isJumping && _isGrounded) { 
             _isJumping = true;
+            _anim.SetBool("IsJumping", true);
             _pressingJumpDuration = 0;
             if (_playerInput.IsRewinding.Value)
             {
@@ -88,18 +96,26 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _isJumping = false;
             _pressingJumpDuration = 0;
+            _anim.SetBool("IsJumping", false);
         }
 
         if (collision.gameObject.CompareTag("Box") && _isGrounded)
         {
-            Die();
+            StartCoroutine("Die");
         }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
+        _isDead = true;
         GetComponent<Collider2D>().enabled = false;
+        ChangeHorizontalSpeed(-1);
+        ChangeVerticalSpeed(2);
+        _anim.SetTrigger("Die");
         Debug.Log("GAME OVER!");
+
+        yield return new WaitForSeconds(_timeToPauseAfterDie);
+        Pause();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -108,5 +124,10 @@ public class PlayerMovement : MonoBehaviour
         {
             _isGrounded = false;
         }
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0;
     }
 }
