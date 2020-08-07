@@ -163,7 +163,7 @@ MonoBehaviour:
   _horizontalSpeed: 1.5
   _jumpSpeed: 3
   _jumpHorizontalSpeed: 4
-  _timeToPauseAfterDie: 3
+  _timeToPauseAfterDie: 2
 --- !u!95 &1864513689667336348
 Animator:
   serializedVersion: 3
