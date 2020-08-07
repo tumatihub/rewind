@@ -89,6 +89,17 @@ public class PlayerMovement : MonoBehaviour
             _isJumping = false;
             _pressingJumpDuration = 0;
         }
+
+        if (collision.gameObject.CompareTag("Box") && _isGrounded)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        Debug.Log("GAME OVER!");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
