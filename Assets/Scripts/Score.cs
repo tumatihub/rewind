@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu]
@@ -12,6 +13,8 @@ public class Score : ScriptableObject
 
     private UnityAction ScoreChangeEvent;
     private UnityAction MultiplierChangeEvent;
+
+    [SerializeField] private ScoreUnit _scoreUnity;
 
     private void OnEnable()
     {
@@ -33,6 +36,12 @@ public class Score : ScriptableObject
     {
         Multiplier.Value = _minMultiplier;
         MultiplierChangeEvent();
+    }
+
+    public void SpawnScoreUnit(Vector3 position, int score)
+    {
+        var obj = Instantiate(_scoreUnity, position, Quaternion.identity);
+        obj.UpdateScore(score * Multiplier.Value);
     }
 
     public void SubscribeScoreUI(UnityAction action)
