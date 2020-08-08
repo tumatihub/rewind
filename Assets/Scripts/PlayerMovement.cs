@@ -98,8 +98,11 @@ public class PlayerMovement : MonoBehaviour
             _pressingJumpDuration = 0;
             _anim.SetBool("IsJumping", false);
         }
+    }
 
-        if (collision.gameObject.CompareTag("Box") && _isGrounded)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Box") && _isGrounded && !_isDead)
         {
             StartCoroutine("Die");
         }
