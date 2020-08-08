@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _timeToPauseAfterDie = 3f;
     private bool _isDead = false;
 
+    public GameObject EndPanel;
+
     private Animator _anim;
 
     private AudioSource _audioSource;
@@ -138,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Pause()
     {
+        EndPanel.SetActive(true);
         Time.timeScale = 0;
     }
 }
