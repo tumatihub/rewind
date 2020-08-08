@@ -21,9 +21,12 @@ public class Score : ScriptableObject
     public void AddScore(int score)
     {
         TotalScore.Value = Mathf.Max(TotalScore.Value+(score*Multiplier.Value),0);
-        Multiplier.Value = Mathf.Min(Multiplier.Value + 1, _maxMultiplier);
         ScoreChangeEvent();
-        MultiplierChangeEvent();
+        if (Multiplier.Value < _maxMultiplier)
+        {
+            Multiplier.Value++;
+            MultiplierChangeEvent();
+        }
     }
 
     public void LoseCoin()

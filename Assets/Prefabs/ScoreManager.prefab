@@ -44,5 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalScore: {fileID: 11400000, guid: e0a2ad8faaab82344a398cfdeafe04cd, type: 2}
+  Multiplier: {fileID: 11400000, guid: 395279b685c51dd44a054cbb289e689f, type: 2}
   _scoreText: {fileID: 0}
+  _multiplierText: {fileID: 0}
   _score: {fileID: 11400000, guid: 6cb6bd1992255394f941f0944f887ccd, type: 2}
+  _scoreScale: 1.2
+  _scoreDelay: 0.2
+  _multiplierScale: 1.2
+  _multiplierDelay: 0.2
