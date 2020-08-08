@@ -23,6 +23,7 @@ public class ScoreObject : MonoBehaviour
 
         if (collision.gameObject.CompareTag("TapeGround"))
         {
+            _score.LoseCoin();
             Instantiate(_lostCoin, transform.position, Quaternion.identity);
         }
 

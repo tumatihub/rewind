@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Score
   m_EditorClassIdentifier: 
   TotalScore: {fileID: 11400000, guid: e0a2ad8faaab82344a398cfdeafe04cd, type: 2}
+  Multiplier: {fileID: 11400000, guid: 395279b685c51dd44a054cbb289e689f, type: 2}
+  _maxMultiplier: 10
+  _minMultiplier: 1
