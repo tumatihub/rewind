@@ -7,6 +7,7 @@ public class Score : ScriptableObject
 {
     public IntegerVariable TotalScore;
     public IntegerVariable Multiplier;
+    public FloatVariable CoinPitch;
 
     [SerializeField] private int _maxMultiplier = 10;
     [SerializeField] private int _minMultiplier = 1;

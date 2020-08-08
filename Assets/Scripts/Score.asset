@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalScore: {fileID: 11400000, guid: e0a2ad8faaab82344a398cfdeafe04cd, type: 2}
   Multiplier: {fileID: 11400000, guid: 395279b685c51dd44a054cbb289e689f, type: 2}
+  CoinPitch: {fileID: 11400000, guid: 9b5136a3f270dfb4c9a2d205970832b4, type: 2}
   _maxMultiplier: 10
   _minMultiplier: 1
+  _scoreUnity: {fileID: -2163189151190340161, guid: ad523cb2bb1286c49b1c3372ed163a0b,
+    type: 3}

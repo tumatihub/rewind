@@ -20,11 +20,16 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _anim;
 
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _jumpSFX;
+    [SerializeField] private AudioClip _deathSFX;
+
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -55,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (_playerInput.PressingJump && !_isJumping && _isGrounded) { 
             _isJumping = true;
             _anim.SetBool("IsJumping", true);
+            _audioSource.PlayOneShot(_jumpSFX);
             _pressingJumpDuration = 0;
             if (_playerInput.IsRewinding.Value)
             {
@@ -111,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Die()
     {
         _isDead = true;
+        _audioSource.PlayOneShot(_deathSFX);
         GetComponent<Collider2D>().enabled = false;
         ChangeHorizontalSpeed(-1);
         ChangeVerticalSpeed(2);
