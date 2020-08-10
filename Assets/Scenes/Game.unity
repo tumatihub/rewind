@@ -451,6 +451,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 109338811101097696, guid: c93af39dea50dd6448fc1ac8c9ae2c1d,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 109338811101097698, guid: c93af39dea50dd6448fc1ac8c9ae2c1d,
         type: 3}
       propertyPath: m_Name
@@ -713,6 +718,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1258226881273549263, guid: f2cb7afca2f72d543b84fe6c47128488,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258226881273549263, guid: f2cb7afca2f72d543b84fe6c47128488,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258226881273549263, guid: f2cb7afca2f72d543b84fe6c47128488,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 3170856394165185948, guid: f2cb7afca2f72d543b84fe6c47128488,
         type: 3}
       propertyPath: m_LocalPosition.x
